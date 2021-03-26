@@ -1,0 +1,286 @@
+/*
+Theme for the Beyond Alex Publish site and internal Obsidian stuff.
+
+TOC:
+1. FONTS AND FONT STYLES
+  - Font Imports
+  - @font-face rules
+  - Font Colors
+  - Font Family Variables
+  - Font Assignment
+  - Font Styling
+2. ELEMENT POSITIONING AND STYLES
+3. GRAPH VIEWS
+4. OTHER FEATURES
+  - Highlighter
+5. CSSCLASSES
+*/
+
+/* 1. FONTS AND FONT STYLES */
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kufam:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Long+Cang&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tillana:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300..700&display=swap');
+/* @font-face rules */
+
+/* Font Family Variables */
+body {
+  --font-preview: "Exo 2";
+  --font-edit: "DM Mono";
+  --font-mono: var(--font-edit);
+  --font-ui: Varta;
+  --font-headings: Kufam;
+  --font-title: Tillana;
+  --font-alex: Caveat;
+  --font-alex-headings: "Long Cang";
+  --font-jexle: "Alex Brush";
+  --font-noise: "Covered By Your Grace";
+  --font-clock: "Share Tech Mono";
+  --font-telepathy: "Nothing You Could Do";
+  --font-print: "New Tegomin";
+  /* Test font(s) */
+  --font-emotional: "emotional";
+  --font-emotional-wght: 0;
+}
+/* Font Colors */
+body {
+  --text-normal: #CCCCCC;
+  --text-ital: #c26278;
+  --text-bold: #ca8372;
+  --text-code: #64caa3;
+  --text-quote: #ab72cc;
+  --text-link: #5bc7ca;
+  --text-link-pale: #8dc1c4;
+  --text-telepathy: #956ec7;
+  --text-comment: #682c45;
+  --text-jarring: #dd4566;
+  --text-tone: #da4a40;
+  --text-clock: #0defff;
+  --text-html-tag: #98b49e;
+  --text-html-attribute: #98b4ae;
+  --text-html-string: #98acb4;
+}
+/* Font Assignments & Styling */
+/* General Elements */
+body, input {
+  font-family: var(--font-ui);
+}
+.markdown-preview-view .markdown-preview-section {
+  font-family: var(--font-preview);
+}
+ .markdown-source-view .CodeMirror-line,
+ .markdown-source-view .CodeMirror-line-like {
+  font-family: var(--font-edit);
+}
+/* Headings */
+.markdown-preview-view .markdown-preview-section h1,
+.markdown-preview-view .markdown-preview-section h2,
+.markdown-preview-view .markdown-preview-section h3,
+.markdown-preview-view .markdown-preview-section h4,
+.markdown-preview-view .markdown-preview-section h5,
+.markdown-preview-view .markdown-preview-section h6 {
+  font-family: var(--font-headings);
+}
+.workspace-leaf.mod-active .view-header-title,
+.page-header {
+  font-family: Tillana;
+}
+.page-header {
+  border-bottom: 2px solid var(--text-comment);
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+.markdown-preview-view .markdown-preview-section h1,
+.markdown-preview-view .markdown-preview-section h2,
+.markdown-preview-view .markdown-preview-section h3,
+.markdown-preview-view .markdown-preview-section h4,
+.markdown-preview-view .markdown-preview-section h5,
+.markdown-preview-view .markdown-preview-section h6,
+.workspace-leaf.mod-active .view-header-title,
+.page-header {
+  text-align: center;
+}
+.markdown-preview-view .markdown-preview-section h1 {
+  font-size: 1.5em;
+}
+/* Code, bold, italics */
+code, .cm-inline-code {
+  font-family: var(--font-mono);
+}
+em, .cm-em {
+  color: var(--text-ital);
+  padding: 0 0.2em 0 0;
+  margin: 0 -0.1em;
+}
+strong,
+.cm-strong {
+  color: var(--text-bold);
+}
+blockquote,
+.cm-quote {
+  color: var(--text-quote);
+}
+.markdown-preview-view code,
+.cm-s-obsidian span.cm-inline-code {
+  color: var(--text-code);
+}
+/* Links */
+.markdown-preview-view a.internal-link,
+.cm-s-obsidian .cm-link,
+.markdown-source-view .cm-s-obsidian .cm-hmd-internal-link {
+  color: var(--text-link-pale);
+  text-decoration: none;
+  transition: 0.3s ease-in-out color;
+}
+.markdown-preview-view a.internal-link:hover,
+.cm-s-obsidian .cm-link:hover,
+.markdown-source-view .cm-s-obsidian .cm-hmd-internal-link:hover {
+  color: var(--text-link);
+  text-decoration: underline;
+}
+/* Comments */
+.cm-s-obsidian span.cm-comment {
+  color: var(--text-comment);
+}
+/* Inline HTML */
+.cm-s-obsidian span.cm-tag {
+  color: var(--text-html-tag);
+}
+.cm-s-obsidian span.cm-attribute {
+  color: var(--text-html-attribute);
+}
+.cm-s-obsidian span.cm-string {
+  color: var(--text-html-string);
+}
+
+/* 2. ELEMENT POSITION AND STYLING */
+/* Element & Style Colors */
+body {
+  --bg-primary: #;
+}
+
+/* 3. GRAPH VIEWS */
+
+/* 4. OTHER FEATURES */
+/* Highlighter */
+body {
+  --hl-red: 204, 0, 0;
+  --hl-red-orange: 255, 93, 0;
+  --hl-orange: 255, 153, 0;
+  --hl-yellow: 255, 255, 0;
+  --hl-green: 0, 255, 0;
+  --hl-teal: 0, 255, 191;
+  --hl-cyan: 0, 255, 255;
+  --hl-light-blue: 0, 153, 255;
+  --hl-blue: 0, 0, 255;
+  --hl-blurple: 106, 13, 255;
+  --hl-purple: 143, 23, 255;
+  --hl-violet: 195, 44, 255;
+  --hl-pink: 255, 0, 255;
+  /* opacity */
+  --hl-bright: 1;
+  --hl-mid: 0.7;
+  --hl-dim: 0.4;
+  /* default highlight */
+  --hl-color: var(--hl-purple);
+  --highlight-bright: rgba(var(--hl-color), var(--hl-bright));
+  --highlight-mid: rgba(var(--hl-color), var(--hl-mid));
+  --highlight-dim: rgba(var(--hl-color), var(--hl-dim));
+}
+.markdown-source-view .CodeMirror-line .cm-highlight {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(15deg, var(--highlight-bright), var(--highlight-dim), var(--highlight-mid));
+}
+/* Telepathic Exchanges */
+.markdown-preview-view .telepathy {
+  color: var(--text-telepathy);
+  font-family: var(--font-telepathy);
+  font-size: 0.8em;
+  font-style: italic;
+  padding: 0 0.2em 0 0;
+}
+.markdown-preview-view .telepathy::before {
+  content: '«';
+  padding-right: 0.1em;
+  vertical-align: 5%;
+}
+.markdown-preview-view .telepathy::after {
+  content: '»';
+  padding-left: 0.1em;
+  vertical-align: 5%;
+}
+/* Noises/Sounds */
+.markdown-preview-view .noise {
+  font-family: var(--font-noise);
+}
+.markdown-preview-view .noise.jarring,
+.markdown-preview-view.alex-here .noise.jarring {
+  color: var(--text-jarring);
+  font-size: 1.1em;
+  letter-spacing: 0.5em;
+}
+.markdown-preview-view .noise.tone,
+.markdown-preview-view.alex-here .noise.tone {
+  color: var(--text-tone);
+}
+/* "Print" */
+.markdown-preview-view .print,
+.markdown-preview-view.alex-here .print {
+  font-family: var(--font-print);
+  font-size: 0.75em;
+  padding-left: 0.1em;
+}
+
+/* 5. CSSCLASSES */
+/* Alex Here */
+.markdown-preview-view.alex-here {
+  --font-preview: var(--font-alex);
+  font-size: 1.4em;
+  line-height: 1.1em;
+}
+.markdown-preview-view.alex-here .markdown-preview-section h1,
+.markdown-preview-view.alex-here .markdown-preview-section h2,
+.markdown-preview-view.alex-here .markdown-preview-section h3,
+.markdown-preview-view.alex-here .markdown-preview-section h4,
+.markdown-preview-view.alex-here .markdown-preview-section h5,
+.markdown-preview-view.alex-here .markdown-preview-section h6 {
+  --font-headings: var(--font-alex-headings);
+}
+.markdown-preview-view.alex-here .markdown-preview-section span.speech {
+  --font-preview: var(--font-emotional);
+  font-family: var(--font-preview);
+  /* font-weight: 0; */
+}
+.markdown-preview-view.alex-here .telepathy {
+  margin-right: -0.3em;
+}
+.markdown-preview-view.alex-here .telepathy::after {
+  margin-left: -0.1em;
+}
+.markdown-preview-view.alex-here .telepathy::before {
+  margin-right: -0.1em;
+}
+.markdown-preview-view.alex-here .clock {
+  color: var(--text-clock);
+  font-family: var(--font-clock);
+  font-size: 0.8em;
+}
+.markdown-preview-view.alex-here em {
+  padding-left: 0.05em;
+  padding-right: 0.05em;
+}
+/* Hartwellian */
+.markdown-preview-view.hartwellian .view-header-title,
+.markdown-preview-view.hartwellian .page-header {
+  font-family: var(--font-jexle);
+}
